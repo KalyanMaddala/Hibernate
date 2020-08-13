@@ -1,0 +1,12 @@
+SQL> select * from BankAccount;
+
+      ACNO HOLDERNAME         BALANCE STATUS
+---------- --------------- ---------- ----------
+      1001 karan                90000 closed
+      1002 jani                200000 active
+      1003 suresh              700000 blocked
+      1004 ravi                  8000 active
+      1005 kiran                 9000 blocked
+      1006 chari                10000 active
+      1007 rakesh               20000 closed
+      

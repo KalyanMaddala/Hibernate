@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.entity.BankAccount"   table="BANKACCOUNT"  where="STATUS NOT IN('closed','inactive','blocked')">
+        <id name="acno"  column="ACNO"  type="int"  length="10">
+           <generator class="increment"/>
+        </id>
+       <property name="holderName"  column="HOLDERNAME" type="string" length="20"/>
+       <property name="balance"  column="BALANCE" type="float" length="20"/>
+       <property name="status"  column="STATUS"  type="string"  length="20"/>
+       <sql-delete>UPDATE BANKACCOUNT SET STATUS='closed' WHERE ACNO=?</sql-delete>
+  </class>
+  
+</hibernate-mapping>	

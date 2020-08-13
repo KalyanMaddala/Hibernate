@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.entity.BankAccount"   table="BANKACCOUNT">
+        <id name="acno"  column="ACNO"  type="int"  length="10">
+           <generator class="increment"/>
+        </id>
+       <property name="holderName"  column="HOLDERNAME" type="string" length="20"/>
+       <property name="balance"  column="BALANCE" type="float" length="20"/>
+       <property name="status"  column="STATUS"  type="string"  length="20"/>
+       <!-- Define filter condition -->
+       <filter name="AVOID_INACTIVE_ACCOUNTS" condition="STATUS NOT  IN(:type1,:type2,:type3)"/>
+       <sql-update>
+       </sql-update>
+  </class>
+  
+  <!-- Define filter with params -->
+  <filter-def name="AVOID_INACTIVE_ACCOUNTS">
+      <filter-param name="type1" type="string"/>
+      <filter-param name="type2" type="string"/>
+      <filter-param name="type3" type="string"/>
+  </filter-def>
+  
+</hibernate-mapping>	

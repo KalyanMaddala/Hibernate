@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.entity.Employee"   table="EMPLOYEE">
+     <id name="empNo"  length="10"   type="int">
+          <generator class="increment"/>
+     </id>
+     
+     <property name="ename"  length="15" type="string"/>
+     <property name="desg"  length="15" type="string"/>
+     <property name="salary"   type="float"  scale="7" precision="2"/>
+     
+     <many-to-one name="dept" class="com.nt.entity.Department" column="dno" cascade="all"  />
+     
+  </class>
+
+</hibernate-mapping>	

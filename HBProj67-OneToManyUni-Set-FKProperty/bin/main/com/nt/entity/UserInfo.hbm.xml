@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.nt.entity.UserInfo" table="USER_INFO">
+        <id name="userId"  length="10" type="int">
+            <generator class="increment"/>
+        </id>
+        <property name="name"  length="15" type="string"/>
+        <property name="addrs" type="string" length="15"/>
+        <set name="phones" cascade="save-update"  lazy="false">
+            <key column="unid"/>
+            <one-to-many  class="com.nt.entity.PhoneNumber"/>
+        </set>
+    </class>
+  
+</hibernate-mapping>	

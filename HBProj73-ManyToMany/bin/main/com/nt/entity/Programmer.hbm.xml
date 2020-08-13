@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nt.entity.Programmer"   table="PROGRAMMER">
+     <id name="pid"  length="10"   type="int">
+          <generator class="increment"/>
+     </id>
+     <property name="pname"  length="15" type="string"/>
+     <property name="salary"   scale="7"  precision="2"  type="float"/>
+     <set name="projects"  cascade="all"  lazy="extra"  inverse="true" table="PROGRAMMERS_PROJECTS" >
+           <key column="prgmr_id"/> 
+           <many-to-many  class="com.nt.entity.Project"  column="project_id"/>
+     </set>
+  </class>
+</hibernate-mapping>	
